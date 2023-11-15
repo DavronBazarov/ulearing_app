@@ -2,6 +2,7 @@ import 'package:dots_indicator/dots_indicator.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:ulearning_app/common/utils/app_colors.dart';
 import 'package:ulearning_app/pages/welcome/widgets.dart';
 
 import 'notifier/welcome_notifier.dart';
@@ -66,13 +67,14 @@ class Welcome extends ConsumerWidget {
                 //for showing dots
                 Positioned(
                   // left: 20,
-                  bottom: 80,
+                  bottom: 50.h,
                   child: DotsIndicator(
                     position: index,
                     mainAxisAlignment: MainAxisAlignment.center,
                     dotsCount: 3,
                     decorator: DotsDecorator(
                         size: const Size.square(9.0),
+                        activeColor: AppColors.primaryElement,
                         activeSize: const Size(24.0, 8.0),
                         activeShape: RoundedRectangleBorder(
                           borderRadius: BorderRadius.circular(5.w),

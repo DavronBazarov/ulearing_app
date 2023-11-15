@@ -9,7 +9,7 @@ preferredSize widget gives you  height or space from the appbar down words and
 we can put child in the given space
 */
 
-AppBar buildAppBar() {
+AppBar buildAppBar({String title = ""}) {
   return AppBar(
     bottom: PreferredSize(
       preferredSize: const Size.fromHeight(10),
@@ -18,6 +18,6 @@ AppBar buildAppBar() {
         height: 1,
       ),
     ),
-    title: text16Normal(text: "Login", color: AppColors.primaryText),
+    title: text16Normal(text: title, color: AppColors.primaryText),
   );
 }

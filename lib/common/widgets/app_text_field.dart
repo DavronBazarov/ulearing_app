@@ -6,10 +6,12 @@ import 'app_shadow.dart';
 import 'image_widgets.dart';
 
 Widget appTextField({
+  TextEditingController? controller,
   String text = "",
   String iconPath = "",
   String hintText = "Type in your info",
   bool obscureText = false,
+  void Function(String value)? func,
 }) {
   return Container(
     padding: EdgeInsets.only(left: 25.w, right: 25.w),
@@ -31,10 +33,12 @@ Widget appTextField({
                 child: appImage(imagePath: iconPath),
               ),
               //our textField
-              Container(
+              SizedBox(
                 height: 55.h,
                 width: 280.w,
                 child: TextField(
+                  controller: controller,
+                  onChanged: (value) => func!(value),
                   keyboardType: TextInputType.multiline,
                   decoration: InputDecoration(
                     hintText: hintText,
@@ -61,7 +65,6 @@ Widget appTextField({
                       ),
                     ),
                   ),
-                  onChanged: (value) {},
                   maxLines: 1,
                   autocorrect: false,
                   obscureText: obscureText,

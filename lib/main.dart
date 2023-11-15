@@ -1,12 +1,16 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:ulearning_app/common/routes/routes.dart';
 import 'package:ulearning_app/common/utils/app_styles.dart';
+import 'package:ulearning_app/global.dart';
+import 'package:ulearning_app/pages/application/application.dart';
 import 'package:ulearning_app/pages/sign_in/sign_in.dart';
 import 'package:ulearning_app/pages/sign_up/sign_up.dart';
 import 'package:ulearning_app/pages/welcome/welcome.dart';
 
-void main() {
+Future<void> main() async {
+  await Global.init();
   runApp(const ProviderScope(child: MyApp()));
 }
 
@@ -17,18 +21,14 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return ScreenUtilInit(
       designSize: const Size(375, 812),
-      child: MaterialApp(
+      builder: (context, child)=>MaterialApp(
         theme: AppTheme.appThemeData,
-        initialRoute: "/",
-        routes: {
-          "/":(context)=>Welcome(),
-          "/signIn":(context)=>const SignIn(),
-          '/register':(context)=>const SignUp(),
-        },
+        onGenerateRoute: AppPages.generateRouteSettings,
       ),
     );
   }
 }
+
 
 final appCount = StateProvider<int>((ref) => 1);
 
@@ -89,7 +89,7 @@ class SecondPage extends ConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     int count = ref.watch(appCount);
-    return  Scaffold(
+    return Scaffold(
       appBar: AppBar(),
       body: Center(
         child: Text("$count"),

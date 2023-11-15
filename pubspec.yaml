@@ -23,6 +23,11 @@ dependencies:
   dots_indicator: ^3.0.0
   riverpod_generator:
   build_runner:
+  fluttertoast: ^8.2.3
+  firebase_auth: ^4.13.0
+  firebase_core: ^2.22.0
+  cloud_firestore: ^4.13.0
+  shared_preferences: ^2.2.2
 
 
 dev_dependencies:
