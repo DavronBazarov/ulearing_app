@@ -3,9 +3,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:ulearning_app/common/utils/app_colors.dart';
-import 'package:ulearning_app/pages/welcome/widgets.dart';
+import 'package:ulearning_app/features/welcome/provider/welcome_notifier.dart';
+import 'package:ulearning_app/features/welcome/view/widgets/widgets.dart';
 
-import 'notifier/welcome_notifier.dart';
 
 class Welcome extends ConsumerWidget {
   Welcome({super.key});

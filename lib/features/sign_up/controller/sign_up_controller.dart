@@ -5,9 +5,10 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import 'package:ulearning_app/common/widgets/popup_messages.dart';
-import 'package:ulearning_app/pages/sign_up/notifier/register_notifier.dart';
 
-import '../../common/global_loader/global_loader.dart';
+
+import '../../../common/global_loader/global_loader.dart';
+import '../provider/register_notifier.dart';
 
 class SignUpController {
   final WidgetRef ref;

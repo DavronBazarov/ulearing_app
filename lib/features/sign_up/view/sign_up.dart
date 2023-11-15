@@ -4,15 +4,16 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:ulearning_app/common/utils/app_colors.dart';
+import 'package:ulearning_app/common/utils/image_res.dart';
 
 import 'package:ulearning_app/common/widgets/button_widget.dart';
 import 'package:ulearning_app/common/widgets/text_widgets.dart';
-import 'package:ulearning_app/pages/sign_up/notifier/register_notifier.dart';
-import 'package:ulearning_app/pages/sign_up/sign_up_controller.dart';
+import 'package:ulearning_app/features/sign_up/controller/sign_up_controller.dart';
 
-import '../../common/global_loader/global_loader.dart';
-import '../../common/widgets/app_bar.dart';
-import '../../common/widgets/app_text_field.dart';
+import '../../../common/global_loader/global_loader.dart';
+import '../../../common/widgets/app_bar.dart';
+import '../../../common/widgets/app_text_field.dart';
+import '../provider/register_notifier.dart';
 
 class SignUp extends ConsumerStatefulWidget {
   const SignUp({super.key});
@@ -56,7 +57,7 @@ class _SignUpState extends ConsumerState<SignUp> {
                       //user name text box
                       appTextField(
                         text: 'User name',
-                        iconPath: 'assets/icons/user.png',
+                        iconPath: ImageRes.user,
                         hintText: "Enter your user name",
                         func: (value) => ref
                             .read(registerNotifierProvider.notifier)
@@ -65,7 +66,7 @@ class _SignUpState extends ConsumerState<SignUp> {
                       SizedBox(height: 20.h),
                       appTextField(
                         text: 'Email',
-                        iconPath: 'assets/icons/user.png',
+                        iconPath: ImageRes.user,
                         hintText: "Enter your email address",
                         func: (value) => ref
                             .read(registerNotifierProvider.notifier)
@@ -75,7 +76,7 @@ class _SignUpState extends ConsumerState<SignUp> {
                       //password text box
                       appTextField(
                         text: 'Password',
-                        iconPath: 'assets/icons/lock.png',
+                        iconPath: ImageRes.lock,
                         hintText: "Enter your password",
                         obscureText: true,
                         func: (value) => ref
@@ -86,7 +87,7 @@ class _SignUpState extends ConsumerState<SignUp> {
                       //password text box
                       appTextField(
                         text: 'Confirm your password',
-                        iconPath: 'assets/icons/lock.png',
+                        iconPath: ImageRes.lock,
                         hintText: "Confirm your password",
                         obscureText: true,
                         func: (value) => ref

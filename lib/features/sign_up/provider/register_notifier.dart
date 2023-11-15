@@ -1,5 +1,6 @@
 import 'package:riverpod_annotation/riverpod_annotation.dart';
-import 'package:ulearning_app/pages/sign_up/notifier/register_state.dart';
+import 'package:ulearning_app/features/sign_up/provider/register_state.dart';
+
 
 part 'register_notifier.g.dart';
 

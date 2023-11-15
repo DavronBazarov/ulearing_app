@@ -1,4 +1,3 @@
-import 'dart:developer';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -6,12 +5,12 @@ import 'package:ulearning_app/common/global_loader/global_loader.dart';
 import 'package:ulearning_app/common/utils/app_colors.dart';
 import 'package:ulearning_app/common/widgets/button_widget.dart';
 import 'package:ulearning_app/common/widgets/text_widgets.dart';
-import 'package:ulearning_app/pages/sign_in/notifier/sign_in_notifier.dart';
-import 'package:ulearning_app/pages/sign_in/sign_in_controller.dart';
-import 'package:ulearning_app/pages/sign_in/widgets/sign_in_widgets.dart';
-
-import '../../common/widgets/app_bar.dart';
-import '../../common/widgets/app_text_field.dart';
+import 'package:ulearning_app/features/sign_in/controller/sign_in_controller.dart';
+import 'package:ulearning_app/features/sign_in/view/widgets/sign_in_widgets.dart';
+import '../../../common/utils/image_res.dart';
+import '../../../common/widgets/app_bar.dart';
+import '../../../common/widgets/app_text_field.dart';
+import '../provider/sign_in_notifier.dart';
 
 class SignIn extends ConsumerStatefulWidget {
   const SignIn({super.key});
@@ -54,7 +53,7 @@ class _SignInState extends ConsumerState<SignIn> {
                       appTextField(
                         controller: _controller.emailController,
                         text: 'Email',
-                        iconPath: 'assets/icons/user.png',
+                        iconPath: ImageRes.user,
                         hintText: "Enter your email address",
                         func: (value) => ref
                             .read(signInNotifierProvider.notifier)
@@ -65,7 +64,7 @@ class _SignInState extends ConsumerState<SignIn> {
                       appTextField(
                         controller: _controller.passwordController,
                         text: 'Password',
-                        iconPath: 'assets/icons/lock.png',
+                        iconPath: ImageRes.user,
                         hintText: "Enter your password",
                         obscureText: true,
                         func: (value) => ref
