@@ -37,7 +37,7 @@ class LoginRequestEntity {
 class UserLoginResponseEntity {
   int? code;
   String? msg;
-  UserItem? data;
+  UserProfile? data;
 
   UserLoginResponseEntity({
     this.code,
@@ -49,13 +49,13 @@ class UserLoginResponseEntity {
       UserLoginResponseEntity(
         code: json["code"],
         msg: json["msg"],
-        data: UserItem.fromJson(json["data"]),
+        data: UserProfile.fromJson(json["data"]),
       );
 }
 
 
 // login result
-class UserItem {
+class UserProfile {
   String? access_token;
   String? token;
   String? name;
@@ -64,7 +64,7 @@ class UserItem {
   int? online;
   int? type;
 
-  UserItem({
+  UserProfile({
     this.access_token,
     this.token,
     this.name,
@@ -74,16 +74,20 @@ class UserItem {
     this.type,
   });
 
-  factory UserItem.fromJson(Map<String, dynamic> json) =>
-      UserItem(
-        access_token: json["access_token"],
-        token: json["token"],
-        name: json["name"],
-        description: json["description"],
-        avatar: json["avatar"],
-        online: json["online"],
-        type: json["type"],
-      );
+  factory UserProfile.fromJson(Map<String, dynamic> json) {
+    // if(json["access_token"]==null){
+    //   return UserProfile();
+    // }
+   return UserProfile(
+      access_token: json["access_token"],
+      token: json["token"],
+      name: json["name"],
+      description: json["description"],
+      avatar: json["avatar"],
+      online: json["online"],
+      type: json["type"],
+    );
+  }
 
   Map<String, dynamic> toJson() => {
     "access_token": access_token,

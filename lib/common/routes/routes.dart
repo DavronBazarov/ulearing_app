@@ -2,6 +2,7 @@ import 'dart:developer';
 
 import 'package:flutter/material.dart';
 import 'package:ulearning_app/common/routes/app_routes_names.dart';
+import 'package:ulearning_app/features/home/view/home.dart';
 import 'package:ulearning_app/global.dart';
 import 'package:ulearning_app/features/application/view/application.dart';
 import 'package:ulearning_app/features/sign_in/view/sign_in.dart';
@@ -15,6 +16,7 @@ class AppPages {
       RouteEntity(path: AppRoutesNames.SIGN_IN, page: const SignIn()),
       RouteEntity(path: AppRoutesNames.REGISTER, page: const SignUp()),
       RouteEntity(path: AppRoutesNames.APPLICATION, page: const Application()),
+      RouteEntity(path: AppRoutesNames.HOME, page: const Home()),
     ];
   }
 
@@ -26,6 +28,7 @@ class AppPages {
         bool deviceFirstTime = Global.storageService.getDeviceFirstOpen();
         if (result.first.path == AppRoutesNames.WELCOME && deviceFirstTime) {
           bool isLoggedIn = Global.storageService.isLoggedIn();
+
           if (isLoggedIn) {
             return MaterialPageRoute(
               builder: (_) => const Application(),
@@ -38,7 +41,6 @@ class AppPages {
             );
           }
         } else {
-          log("App first time");
           return MaterialPageRoute(
             builder: (_) => result.first.page,
             settings: settings,

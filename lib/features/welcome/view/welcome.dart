@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:ulearning_app/common/utils/app_colors.dart';
+import 'package:ulearning_app/common/utils/image_res.dart';
 import 'package:ulearning_app/features/welcome/provider/welcome_notifier.dart';
 import 'package:ulearning_app/features/welcome/view/widgets/widgets.dart';
 
@@ -33,9 +34,9 @@ class Welcome extends ConsumerWidget {
                   scrollDirection: Axis.horizontal,
                   children: [
                     //first page
-                    appOnBoardingPage(
-                      _controller,
-                      imagePath: "assets/images/reading.png",
+                    AppOnBoardingPage(
+                     controller: _controller,
+                      imagePath: ImageRes.reading,
                       title: "First See Learning",
                       subtitle:
                           "Forget about of paper, now learning all in one place",
@@ -43,9 +44,9 @@ class Welcome extends ConsumerWidget {
                       context: context,
                     ),
                     //second page
-                    appOnBoardingPage(
-                      _controller,
-                      imagePath: "assets/images/man.png",
+                    AppOnBoardingPage(
+                      controller: _controller,
+                      imagePath: ImageRes.man,
                       title: "Connect with Everyone",
                       subtitle:
                           "Always keep in touch with your tutor and friends. Let's get connected",
@@ -53,9 +54,9 @@ class Welcome extends ConsumerWidget {
                       context: context,
                     ),
                     //Third page
-                    appOnBoardingPage(
-                      _controller,
-                      imagePath: "assets/images/boy.png",
+                    AppOnBoardingPage(
+                      controller: _controller,
+                      imagePath: ImageRes.boy,
                       title: "Always Fascinated Learning",
                       subtitle:
                           "Anywhere, anytime. The time is at your discretion. So study wherever you can",

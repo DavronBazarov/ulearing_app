@@ -23,9 +23,9 @@ class _SignInState extends ConsumerState<SignIn> {
   late SignInController _controller;
 
   @override
-  void initState() {
-    _controller = SignInController(ref: ref);
-    super.initState();
+  void didChangeDependencies() {
+    _controller = SignInController();
+    super.didChangeDependencies();
   }
 
   @override
@@ -44,8 +44,8 @@ class _SignInState extends ConsumerState<SignIn> {
                       //top login buttons
                       thirdPartyLogin(),
                       //more login options message
-                      Center(
-                        child: text14Normal(
+                      const    Center(
+                        child:  Text14Normal(
                             text: "Or use your email account to login"),
                       ),
                       SizedBox(height: 50.h),
@@ -75,7 +75,7 @@ class _SignInState extends ConsumerState<SignIn> {
                       //forgot text
                       Container(
                         margin: EdgeInsets.only(left: 25.w),
-                        child: textUnderline(text: "Forgot password"),
+                        child: TextUnderline(text: "Forgot password"),
                       ),
                       SizedBox(height: 100.h),
                       //app login button
@@ -83,7 +83,7 @@ class _SignInState extends ConsumerState<SignIn> {
                         child: appButton(
                           buttonName: "Login",
                           isLogin: true,
-                          func: () => _controller.handleSignIn(),
+                          func: () => _controller.handleSignIn(ref: ref),
                         ),
                       ),
                       SizedBox(height: 20.h),

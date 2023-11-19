@@ -1,4 +1,3 @@
-import 'dart:developer';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
@@ -33,9 +32,7 @@ class _SignUpState extends ConsumerState<SignUp> {
 
   @override
   Widget build(BuildContext context) {
-    final regProvider = ref.watch(registerNotifierProvider);
     final loader = ref.watch(appLoaderProvider);
-    log("loader == $loader");
     return Container(
       color: Colors.white,
       child: SafeArea(
@@ -49,8 +46,8 @@ class _SignUpState extends ConsumerState<SignUp> {
                     children: [
                       SizedBox(height: 30.h),
                       //more login options message
-                      Center(
-                        child: text14Normal(
+                     const Center(
+                        child: Text14Normal(
                             text: "Enter your details below & free sign up"),
                       ),
                       SizedBox(height: 50.h),
@@ -98,7 +95,7 @@ class _SignUpState extends ConsumerState<SignUp> {
                       //forgot text
                       Container(
                         margin: EdgeInsets.only(left: 25.w),
-                        child: text14Normal(
+                        child: const Text14Normal(
                           text: "By creating an account you are agreeing with "
                               "our terms and condition",
                         ),
